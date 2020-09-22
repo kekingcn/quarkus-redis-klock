@@ -2,6 +2,7 @@
 Redis-based quarkus distributed lock extension
 ## Quick start
 - 1、Introduce maven coordinates
+
 ```
         <dependency>
             <groupId>org.github.keking</groupId>
@@ -10,6 +11,7 @@ Redis-based quarkus distributed lock extension
         </dependency>
 ```
 - 2、Add the following configuration in the application.properties file
+
 ```
 #apollo
 quarkus.klock=true
@@ -20,6 +22,7 @@ quarkus.klock.redis.address=redis://192.168.1.204:6379
 By default, the switch of klock extension is turned off, and you need to use the [quarkus.klock=true] configuration to manually turn it on.
 
 - 3、How to use
+
 ```
 @Singleton
 public class ServiceA {
@@ -30,6 +33,7 @@ public class ServiceA {
     }
 }
 ```
+
 As in the code example above, the klock distributed lock quarkus extension is driven by adding annotations. @klock indicates that a distributed lock is added to this method. The name of the lock is: (default: full class name + method name, through the name attribute Designated) + designated business Key. Use the @KlockKey annotation to mark the locked business key, and try to reduce the strength of the lock while meeting business needs. If the input parameter is an object, you can use fieldName to specify an attribute value in the object to be obtained as the business Key,
 The above represents the use of the name attribute value in the user object as the business key. The same business key will be locked, and different business keys will be released
 
