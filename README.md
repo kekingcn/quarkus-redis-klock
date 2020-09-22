@@ -13,7 +13,7 @@ Redis-based quarkus distributed lock extension
 - 2、Add the following configuration in the application.properties file
 
 ```
-#apollo
+#klock
 quarkus.klock=true
 quarkus.klock.redis.database=12
 quarkus.klock.redis.password=sasa
